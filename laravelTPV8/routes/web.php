@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +14,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
+/*Route::get('/', function () {
     return view('welcome');
-});
+});*/
+
+Route::get('/',[UserController::class,'index'])->name('home');
+Route::get('/{id}',[UserController::class,'show'])->name('show');
+
+Route::get('/delete/{id}',[UserController::class,'delete'])->name('delete');
+Route::get('/update/{id}',[UserController::class,'update'])->name('update');
+
