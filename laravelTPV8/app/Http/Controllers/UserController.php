@@ -78,6 +78,19 @@ class UserController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $validate = $request->validate([
+            'name'=>['required','string'],
+            'email'=>['required','string','email','unique:users'],
+            'password'=>['required','string','min:8','max:30'],
+        ]);
+        $user= user::findorfail($id);
+        $user->name =$validate('name');
+        $user->email =$validate('email');
+        $user->password =$validate('password');
+        $user->save();
+
+        session()->flash('message','user is updated successfully');
+        return redirect()->back();
     }
 
     /**
@@ -89,5 +102,9 @@ class UserController extends Controller
     public function destroy($id)
     {
         //
+        $user= user::findorfail($id);
+        $user->delete();
+        session()->flash('message','user is updated successfully');
+        return redirect()->back();
     }
 }
