@@ -16,8 +16,12 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-       // User::factory(100)->create();
-        $user =User::find(1);
-        $formation = Formation::factory()->count(30)->for($user)->create();
+       /* User::factory(200)->create();
+        for($i=1;$i<=200;$i++){
+            $user =User::find($i);
+            $formation = Formation::factory()->count(15)->for($user)->create();
+        }*/
+
+
     }
 }

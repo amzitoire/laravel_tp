@@ -26,9 +26,9 @@
                         <td>{{$user->email}}</td>
                         <td>{{$user->email_verified_at}}</td>
                         <td>
-                            <a href="{{route('show',$user->id)}}"><button  class="btn btn-primary">show</button></a>
-                            <a href="{{route('update',$user->id)}}"><button  class="btn btn-infos">update</button></a>
-                            <a href="{{route('delete',$user->id)}}"><button  class="btn btn-danger">delete</button></a>
+                            <a href="{{route('users.show',$user->id)}}"><button  class="btn btn-primary">show</button></a>
+                            <a href="{{route('users.edit',$user->id)}}"><button  class="btn btn-infos">update</button></a>
+                            <a href="{{route('users.delete',$user->id)}}"><button  class="btn btn-danger">delete</button></a>
                         </td>
 
                     </tr>

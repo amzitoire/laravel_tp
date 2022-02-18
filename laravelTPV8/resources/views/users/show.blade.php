@@ -17,13 +17,47 @@
             <p class="card-text"><strong>EMAIL :</strong> {{$user->email}}</p>
             <p class="card-text"><strong>Verified AT :</strong> {{$user->email_verified_at}}</p>
             <div>
-                <a href="{{route('update',$user->id)}}"><button  class="btn btn-infos">update</button></a>
-                <a href="{{route('delete',$user->id)}}"><button  class="btn btn-danger">delete</button></a>
+                <a href="{{route('users.edit',$user->id)}}"><button  class="btn btn-infos">update</button></a>
+                <a href="{{route('users.delete',$user->id)}}"><button  class="btn btn-danger">delete</button></a>
             </div>
         </div>
     </div>
         </div>
     </div>
+    </div>
+    <div class="container-fluid">
+        <div class="row">
+            <h1 class="col-6 mx-auto" >les formationss</h1>
+            <table class="table">
+                <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">price</th>
+                    <th scope="col">Action</th>
+                </tr>
+                </thead>
+                <tbody>
+                @foreach($formations as $formation)
+                    <tr>
+
+                        <th scope="row">{{$formation->id}}</th>
+                        <td>{{$formation->name}}</td>
+                        <td>{{$formation->price}}</td>
+                        <td>
+                            <a {{--href="{{route('show',$formation->id)}}"--}}><button  class="btn btn-primary">show</button></a>
+                            <a {{--href="{{route('edit',$formation->id)}}"--}}><button  class="btn btn-infos">update</button></a>
+                            <a {{--href="{{route('delete',$formation->id)}}"--}}><button  class="btn btn-danger">delete</button></a>
+                        </td>
+
+                    </tr>
+                @endforeach
+                </tbody>
+            </table>
+          {{--  <div class="col-6 mx-auto">
+                {{$users->links()}}
+            </div>--}}
+        </div>
     </div>
 @endsection
 @section('js')

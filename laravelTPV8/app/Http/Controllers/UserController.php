@@ -51,8 +51,8 @@ class UserController extends Controller
     {
 
         $user=User::findorFail($id);
-       /* dd($user);*/
-        return view("users.show",["user"=>$user]);
+        $formations = $user->formations;
+        return view("users.show",["user"=>$user,"formations"=>$formations]);
     }
 
     /**
@@ -64,6 +64,8 @@ class UserController extends Controller
     public function edit($id)
     {
         //
+        $user=User::findorFail($id);
+        return view("users.edit",["user"=>$user]);
     }
 
     /**
