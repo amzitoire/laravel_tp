@@ -6,7 +6,8 @@
 @section('content')
     <div class="container-fluid">
         <div class="row">
-    <form class="form" action="{{route('users.update',$user->id)}}" method="post">
+    <form  action="{{route('users.update',$user->id)}}" method="post">
+        @csrf()
         <div class="col-12 mx-auto">
             @include('../messages.errors')
             @include('../messages.success')

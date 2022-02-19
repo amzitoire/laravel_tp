@@ -72,24 +72,25 @@ class UserController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request,$id)
     {
         //
         $validate = $request->validate([
             'name'=>['required','string'],
-            'email'=>['required','string','email','unique:users'],
-            'password'=>['required','string','min:8','max:30'],
-        ]);
-        $user= user::findorfail($id);
-        $user->name =$validate('name');
-        $user->email =$validate('email');
-        $user->password =$validate('password');
+            'email'=>['required','string'],
+            'password'=>['required','string'],
+            ]);
+
+        $user= User::findorfail($id);
+        $user->name = $validate['name'];;
+        $user->email =$validate['email'];
+        $user->password =$validate['password'];
         $user->save();
 
-        session()->flash('message','user is updated successfully');
+        session()->flash('messageSuccess','user is updated successfully');
         return redirect()->back();
     }
 
@@ -105,6 +106,6 @@ class UserController extends Controller
         $user= user::findorfail($id);
         $user->delete();
         session()->flash('message','user is updated successfully');
-        return redirect()->back();
+        return redirect()->back()->with(['message'=>session('message')]);
     }
 }

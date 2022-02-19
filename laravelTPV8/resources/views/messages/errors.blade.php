@@ -1,5 +1,5 @@
-@if(session('message'))
+@if(session('messageErrors'))
     <div class="alert alert-errors">
-        {{session('message')}}
+        {{session('messageErrors')}}
     </div>
 @endif
