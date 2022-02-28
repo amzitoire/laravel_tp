@@ -45,9 +45,9 @@
                         <td>{{$formation->name}}</td>
                         <td>{{$formation->price}}</td>
                         <td>
-                            <a {{--href="{{route('show',$formation->id)}}"--}}><button  class="btn btn-primary">show</button></a>
-                            <a {{--href="{{route('edit',$formation->id)}}"--}}><button  class="btn btn-infos">update</button></a>
-                            <a {{--href="{{route('delete',$formation->id)}}"--}}><button  class="btn btn-danger">delete</button></a>
+                            <a href="{{route('formations.showFormation',$formation->id)}}"><button  class="btn btn-primary">show</button></a>
+                            <a href="{{route('formations.editFormation',$formation->id)}}"><button  class="btn btn-infos">update</button></a>
+                            <a href="{{route('formations.deleteFormation',$formation->id)}}"><button  class="btn btn-danger">delete</button></a>
                         </td>
 
                     </tr>

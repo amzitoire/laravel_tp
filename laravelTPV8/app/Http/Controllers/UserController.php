@@ -105,7 +105,7 @@ class UserController extends Controller
         //
         $user= user::findorfail($id);
         $user->delete();
-        session()->flash('message','user is updated successfully');
+        session()->flash('message','user is deleted successfully');
         return redirect()->back()->with(['message'=>session('message')]);
     }
 }
